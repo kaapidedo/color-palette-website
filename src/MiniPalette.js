@@ -28,11 +28,6 @@ class MiniPalette extends PureComponent {
     ));
     return (
       <div className={classes.root} onClick={this.handleClick}>
-        <DeleteIcon
-          className={classes.deleteIcon}
-          style={{ transition: "all 0.3s ease-in-out" }}
-          onClick={this.deletePalette}
-        />
 
         <div className={classes.colors}>{miniColorBoxes}</div>
         <h5 className={classes.title}>

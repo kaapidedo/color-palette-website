@@ -5,7 +5,6 @@ import Palette from "./Palette";
 import PaletteList from "./PaletteList";
 import SingleColorPalette from "./SingleColorPalette";
 import Page from "./Page";
-import NewPaletteForm from "./NewPaletteForm";
 import seedColors from "./seedColors";
 import { generatePalette } from "./colorHelpers";
 
@@ -49,19 +48,6 @@ class App extends Component {
           <TransitionGroup>
             <CSSTransition key={location.key} classNames='page' timeout={500}>
               <Switch location={location}>
-                <Route
-                  exact
-                  path='/palette/new'
-                  render={routeProps => (
-                    <Page>
-                      <NewPaletteForm
-                        savePalette={this.savePalette}
-                        palettes={this.state.palettes}
-                        {...routeProps}
-                      />
-                    </Page>
-                  )}
-                />
                 <Route
                   exact
                   path='/palette/:paletteId/:colorId'

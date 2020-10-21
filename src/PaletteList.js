@@ -23,23 +23,10 @@ class PaletteList extends Component {
       openDeleteDialog: false,
       deletingId: ""
     };
-    this.openDialog = this.openDialog.bind(this);
-    this.closeDialog = this.closeDialog.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
     this.goToPalette = this.goToPalette.bind(this);
-  }
-  openDialog(id) {
-    this.setState({ openDeleteDialog: true, deletingId: id });
-  }
-  closeDialog() {
-    this.setState({ openDeleteDialog: false, deletingId: "" });
   }
   goToPalette(id) {
     this.props.history.push(`/palette/${id}`);
-  }
-  handleDelete() {
-    this.props.deletePalette(this.state.deletingId);
-    this.closeDialog();
   }
   render() {
     const { palettes, classes } = this.props;
@@ -48,8 +35,7 @@ class PaletteList extends Component {
       <div className={classes.root}>
         <div className={classes.container}>
           <nav className={classes.nav}>
-            <h1 className={classes.heading}>React Colors</h1>
-            <Link to='/palette/new'>Create Palette</Link>
+            <h1 className={classes.heading}>Beaconstac Colors</h1>
           </nav>
           <TransitionGroup className={classes.palettes}>
             {palettes.map(palette => (
@@ -82,7 +68,6 @@ class PaletteList extends Component {
                   <CheckIcon />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary='Delete' />
             </ListItem>
             <ListItem button onClick={this.closeDialog}>
               <ListItemAvatar>
